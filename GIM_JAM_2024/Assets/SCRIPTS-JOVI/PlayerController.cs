@@ -18,9 +18,8 @@ public class PlayerController : MonoBehaviour
     public int keyR;
     public float verticalinput;
     public float horizontalinput;
-    //public bool inputvert;
-    //public bool inputhorz;
     public GameObject player;
+    public SpriteRenderer sprite_hero;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +35,7 @@ public class PlayerController : MonoBehaviour
         speed = 12;
         verticalinput = 0;
         horizontalinput = 0;
+        sprite_hero = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -44,18 +44,23 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(key_up))
         {
             verticalinput = 1;
+            
         }
         if (Input.GetKey(key_down))
         {
             verticalinput = -1;
+            
         }
         if (Input.GetKey(key_right))
         {
             horizontalinput = 1;
+            sprite_hero.flipX = false;
         }
         if (Input.GetKey(key_left))
         {
             horizontalinput = -1;
+            sprite_hero.flipX = true;
+            
         }
 
         if (!Input.GetKey(key_up) & !Input.GetKey(key_down))
