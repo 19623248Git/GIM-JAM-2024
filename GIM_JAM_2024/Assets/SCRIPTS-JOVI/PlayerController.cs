@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
         key_down = (KeyCode)keyD;
         key_left = (KeyCode)keyL;
         key_right = (KeyCode)keyR;
-        speed = 5;
+        speed = 7;
         verticalinput = 0;
         horizontalinput = 0;
         sprite_hero = GetComponent<SpriteRenderer>();
