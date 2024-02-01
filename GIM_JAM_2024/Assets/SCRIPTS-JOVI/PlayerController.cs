@@ -8,6 +8,7 @@ using UnityEngine.XR;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
+    public Rigidbody2D rb2d;
     public KeyCode key_up;
     public KeyCode key_down;
     public KeyCode key_left;
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public GameObject player;
     public SpriteRenderer sprite_hero;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +34,7 @@ public class PlayerController : MonoBehaviour
         key_down = (KeyCode)keyD;
         key_left = (KeyCode)keyL;
         key_right = (KeyCode)keyR;
-        speed = 12;
+        speed = 5;
         verticalinput = 0;
         horizontalinput = 0;
         sprite_hero = GetComponent<SpriteRenderer>();
@@ -76,6 +78,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        player.transform.position = player.transform.position + new Vector3(horizontalinput * speed * Time.deltaTime, verticalinput * speed * Time.deltaTime);
+        //player.transform.position = player.transform.position + new Vector3(horizontalinput * speed * Time.deltaTime, verticalinput * speed * Time.deltaTime);
+        rb2d.velocity = new Vector2(horizontalinput*speed, verticalinput*speed);
     }
 }
