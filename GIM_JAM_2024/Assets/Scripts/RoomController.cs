@@ -29,48 +29,6 @@ public class RoomController : MonoBehaviour
     {
         instance = this;
     }
-    void Start()
-    {
-        List<Vector2Int> loadedPositions = new List<Vector2Int>();
-
-        // Load the starting room
-        LoadRoom("Start", 0, 0);
-        loadedPositions.Add(new Vector2Int(0, 0));
-
-        // Loop to load additional rooms
-        for (int i = 0; i < 4; i++)
-        {
-            int randomNumber = UnityEngine.Random.Range(0, 2) == 0 ? -1 : 1;
-
-            // Determine the position to load the room
-            int x = 0;
-            int y = 0;
-
-            if (i % 2 == 0)
-            {
-                x = i < 2 ? randomNumber : 0;
-                y = i >= 2 ? randomNumber : 0;
-            }
-            else
-            {
-                x = i < 2 ? (randomNumber == 1 ? -1 : 1) : 0;
-                y = i >= 2 ? (randomNumber == 1 ? -1 : 1) : 0;
-            }
-
-            // Check if the position is already loaded
-            Vector2Int position = new Vector2Int(x, y);
-            if (!loadedPositions.Contains(position))
-            {
-                // Load the room if the position is not loaded
-                LoadRoom("Empty", x, y);
-                loadedPositions.Add(position);
-            }
-        }
-    }
-
-
-
-
 
 
     void Update()
