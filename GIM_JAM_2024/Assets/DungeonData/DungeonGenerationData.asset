@@ -12,6 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b44bfb0486865f64c957f3c67e03a2c5, type: 3}
   m_Name: DungeonGenerationData
   m_EditorClassIdentifier: 
-  numberOfCrawlers: 2
-  iterationMin: 10
-  iterationMax: 20
+  scenesToLoad:
+  - {fileID: 102900000, guid: 200a898cf583cca46b08486568830315, type: 3}
+  - {fileID: 102900000, guid: 82e8c6d5304a4f04f90ea6d53ae87f82, type: 3}
+  - {fileID: 102900000, guid: fa3e2ec323183674987a6fa8bd4e0e54, type: 3}
+  - {fileID: 102900000, guid: 60523adb35d4c714c9ff6263428a792d, type: 3}
+  - {fileID: 102900000, guid: 8f92c6bd01d6e26429eb5a1acdcd9784, type: 3}
+  - {fileID: 102900000, guid: 0e51b9aa9cd2241469bbcbdcd36eeeb2, type: 3}
+  numberOfCrawlers: 1
+  iterationMin: 5
+  iterationMax: 10

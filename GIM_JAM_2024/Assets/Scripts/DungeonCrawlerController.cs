@@ -1,16 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 
-public enum Direction
-{
-	up = 0, 
-	left = 1,
-	down = 2,
-	right = 3,
-
-};
 public class DungeonCrawlerController : MonoBehaviour
 {
     public static List<Vector2Int> positionsVisited = new List<Vector2Int>();
@@ -24,10 +14,12 @@ public class DungeonCrawlerController : MonoBehaviour
 
     public static List<Vector2Int> GenerateDungeon(DungeonGenerationData dungeonData)
     {
-        List<DungeonCrawler> dungeonCrawlers = new List<DungeonCrawler>(); // Corrected type here
+        positionsVisited.Clear(); // Clear the list before generating a new dungeon
+
+        List<DungeonCrawler> dungeonCrawlers = new List<DungeonCrawler>();
         for (int i = 0; i < dungeonData.numberOfCrawlers; i++)
         {
-            dungeonCrawlers.Add(new DungeonCrawler(Vector2Int.zero)); // Creating instances of DungeonCrawler
+            dungeonCrawlers.Add(new DungeonCrawler(Vector2Int.zero));
         }
 
         int iterations = Random.Range(dungeonData.iterationMin, dungeonData.iterationMax);
@@ -36,11 +28,10 @@ public class DungeonCrawlerController : MonoBehaviour
         {
             foreach (DungeonCrawler dungeonCrawler in dungeonCrawlers)
             {
-                Vector2Int newPos = dungeonCrawler.Move(directionMovementMap);
+                Vector2Int newPos = dungeonCrawler.Move(directionMovementMap, positionsVisited); // Pass positionsVisited here
                 positionsVisited.Add(newPos);
             }
         }
         return positionsVisited;
     }
 }
-
